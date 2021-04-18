@@ -1,12 +1,15 @@
 package com.nelio.workshopmongo.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.nelio.workshopmongo.dto.AuthorDTO;
+import com.nelio.workshopmongo.dto.CommentDTO;
 
 
 @Document
@@ -20,6 +23,7 @@ public class Post implements Serializable{
 	private String title;
 	private String body;
 	private AuthorDTO author;
+	private List<CommentDTO> comment = new ArrayList<CommentDTO>();
 	
 	
 	public Post() {
@@ -90,6 +94,24 @@ public class Post implements Serializable{
 	 */
 	public void setAuthor(AuthorDTO author) {
 		this.author = author;
+	}
+	
+	
+
+
+	/**
+	 * @return the comment
+	 */
+	public List<CommentDTO> getComment() {
+		return comment;
+	}
+
+
+	/**
+	 * @param comment the comment to set
+	 */
+	public void setComment(List<CommentDTO> comment) {
+		this.comment = comment;
 	}
 
 
